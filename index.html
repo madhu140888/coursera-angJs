@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myFirstApp">
   <head>
     <meta charset="utf-8">
-    <title>hello madhu</title>
+    <title>My first Angular JS app</title>
+    <!--The browser reads HTML files sequentially and that means
+    <script> inclusion should be carefully used based on our preference so that which js needs to be executed first. -->
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
   <body>
-    <h1>hello coursera. this is madhu and neel!!!
-       <br> I'm really <u>insterested in </u>learning something in this course.</h1>
+    <h1>My First Angular JS app</h1>
+    <!-- no-controller attribute links the controller defined in app.js to this <div> - example for viewModel-->
+       <div ng-controller = "myFirstController">
+         Your name: <input type="text"
+                        ng-model="name"
+                        ng-keyup="calTotalName();"><br>
+         {{sayHello(name)}}
+         <div>
+           Your numeric value of name is : {{totalValue}}
+         </div>
+         <!--sayHello is a function defined in $scope in app.js -->
+         <!--name is also part of scope ($ - this sign defines angular js preserved variables) -->
+       </div>
+       <script>
+        var elem = document.querySelector("[ng-app]");
+        console.log(elem);
+        console.log(elem.getAttribute('ng-app'));
+        //console.log($scope);
+       </script>
   </body>
 </html>
