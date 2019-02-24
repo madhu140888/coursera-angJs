@@ -14,17 +14,21 @@
        <div ng-controller = "myFirstController">
          Your name: <input type="text"
                         ng-model="name"
+                        ng-blur="upper();"
                         ng-keyup="calTotalName();"><br>
          {{sayHello(name)}}
+         <!--{{name|uppercase}} - filter injection to the expression-->
          <div>
            Your numeric value of name is : {{totalValue}}
+           <br>{{custFilterCall()}}<br>
+           {{testMsg | custom1replace : 'eric' : 'ber' | uppercase}}
          </div>
          <!--sayHello is a function defined in $scope in app.js -->
          <!--name is also part of scope ($ - this sign defines angular js preserved variables) -->
        </div>
        <script>
         var elem = document.querySelector("[ng-app]");
-        console.log(elem);
+        //console.log(elem);
         console.log(elem.getAttribute('ng-app'));
         //console.log($scope);
        </script>
